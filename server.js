@@ -449,6 +449,12 @@ app.get('/api/search', (req, res) => {
 // Keep the original fetchData endpoint for backward compatibility
 app.get('/api/fetchData', (req, res) => {
   try {
+    const items = hardcodedData.items.map(item => ({
+      ...item,
+      isUsed: item.isUsed || Math.random() < 0.5,
+      onSale: item.onSale || Math.random() < 0.25
+    }));
+    hardcodedData.items = items;
     res.json(hardcodedData);
   } catch (error) {
     res.status(500).json({

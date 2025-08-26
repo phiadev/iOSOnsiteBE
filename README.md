@@ -56,19 +56,32 @@ Allows for user to toggle if they want to favorite / unfavorite item
   "searchTerm": "dress",
   "items": [
     {
-      "itemName": "CAIA KNIT DRESS",
-      "brand": "Cult Gaia",
-      "price": "598",
-      "imageLink": "https://cultgaia.com/cdn/shop/files/250506_DR_CG_PF25_LOOK_137_0051.jpg?v=1751488747&width=2000",
-      "productId": "ENTITY_TYPE_PRODUCT-ebcb9b193c91a075"
-    },
-    {
-      "itemName": "Alyse V–Neck Midi Dress",
-      "brand": "Ulla Johnson",
-      "price": "1380",
-      "imageLink": "https://ullajohnson.com/cdn/shop/files/ULLA-JOHNSON_Alyse-V-Neck-Midi-Dress_PEARL_PF250181_01_MAIN_v4_887acdc4-bec0-457d-a4b0-84e963f13e44.jpg?v=1747329333&width=1920",
-      "productId": "ENTITY_TYPE_PRODUCT-afe997bb77baaf4b"
-    }
+			"itemName": "CAIA KNIT DRESS",
+			"brand": "Cult Gaia",
+			"price": "598",
+			"imageLink": "https://cultgaia.com/cdn/shop/files/250506_DR_CG_PF25_LOOK_137_0051.jpg?v=1751488747&width=2000",
+			"productId": "ENTITY_TYPE_PRODUCT-ebcb9b193c91a075",
+			"isUsed": false,
+			"onSale": false
+		},
+		{
+			"itemName": "Alyse V–Neck Midi Dress",
+			"brand": "Ulla Johnson",
+			"price": "1380",
+			"imageLink": "https://ullajohnson.com/cdn/shop/files/ULLA-JOHNSON_Alyse-V-Neck-Midi-Dress_PEARL_PF250181_01_MAIN_v4_887acdc4-bec0-457d-a4b0-84e963f13e44.jpg?v=1747329333&width=1920",
+			"productId": "ENTITY_TYPE_PRODUCT-afe997bb77baaf4b",
+			"isUsed": true,
+			"onSale": true
+		},
+		{
+			"itemName": "ALICI DRESS",
+			"brand": "Rat & Boa",
+			"price": "295",
+			"imageLink": "https://cdn.shopify.com/s/files/1/1191/9918/files/RatandBoa_SS25_D3_Alici_Dress_258_960x_crop_center@2x.jpg.webp?v=1750423015",
+			"productId": "ENTITY_TYPE_PRODUCT-d46e8c6674b55fc9",
+			"isUsed": false,
+			"onSale": true
+		}
   ],
   "metadata": {
     "totalItems": 2,
@@ -89,26 +102,32 @@ Returns all hardcoded JSON data with items, metadata, and timestamp.
   "timestamp": "2024-01-15T10:30:00.000Z",
   "items": [
     {
-      "id": 1,
-      "name": "Item 1",
-      "description": "This is the first item",
-      "price": 29.99,
-      "category": "electronics"
-    },
-    {
-      "id": 2,
-      "name": "Item 2",
-      "description": "This is the second item", 
-      "price": 49.99,
-      "category": "clothing"
-    },
-    {
-      "id": 3,
-      "name": "Item 3",
-      "description": "This is the third item",
-      "price": 19.99,
-      "category": "books"
-    }
+			"itemName": "The Pleated Short in Stretch Linen",
+			"brand": "Everlane",
+			"price": "83",
+			"imageLink": "https://media.everlane.com/images/c_fill,w_1080,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/1339c9b6_c62b/womens-pleated-short-in-stretch-linen-cedarwood",
+			"productId": "ENTITY_TYPE_PRODUCT-170faf08d338df87",
+			"isUsed": false,
+			"onSale": true
+		},
+		{
+			"itemName": "Mellie Buckle Strap Mary Jane Flats",
+			"brand": "DV Dolce Vita",
+			"price": "49",
+			"imageLink": "https://slimages.macysassets.com/is/image/MCY/products/9/optimized/26714059_fpx.tif?qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&wid=1200&fmt=webp",
+			"productId": "ENTITY_TYPE_PRODUCT-a0c93828e462609a",
+			"isUsed": false,
+			"onSale": false
+		},
+		{
+			"itemName": "CAIA KNIT DRESS",
+			"brand": "Cult Gaia",
+			"price": "598",
+			"imageLink": "https://cultgaia.com/cdn/shop/files/250506_DR_CG_PF25_LOOK_137_0051.jpg?v=1751488747&width=2000",
+			"productId": "ENTITY_TYPE_PRODUCT-ebcb9b193c91a075",
+			"isUsed": false,
+			"onSale": false
+		},
   ],
   "metadata": {
     "totalItems": 3,
