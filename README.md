@@ -45,6 +45,9 @@ Searches for items by name (case-insensitive). Returns filtered results based on
 curl "http://localhost:3000/api/search?name=dress"
 ```
 
+### POST `/api/toggle-favorite`
+Allows for user to toggle if they want to favorite / unfavorite item
+
 **Response:**
 ```json
 {

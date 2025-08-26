@@ -382,10 +382,14 @@ app.get('/', (req, res) => {
   });
 });
 
+
 // Search by name endpoint
 app.get('/api/search', (req, res) => {
   try {
-    const { name } = req.query;
+    const { name, isUsed, onSale } = req.query;
+    console.log(name, isUsed, onSale);
+    let isUsedBool = isUsed === 'true';
+    let onSaleBool = onSale === 'true';
     
     if (!name) {
       return res.status(400).json({
@@ -393,11 +397,32 @@ app.get('/api/search', (req, res) => {
         message: 'Please provide a name parameter in the query string (e.g., /api/search?name=item)'
       });
     }
+    // randomly assign isUsed to 50% of the items if not already and onSale to 25%
+    const items = hardcodedData.items.map(item => ({
+      ...item,
+      isUsed: item.isUsed || Math.random() < 0.5,
+      onSale: item.onSale || Math.random() < 0.25
+    }));
+    hardcodedData.items = items;
 
     // Filter items by name (case-insensitive search)
-    const filteredItems = hardcodedData.items.filter(item => 
+    let filteredItems = items.filter(item => 
       item.itemName.toLowerCase().includes(name.toLowerCase())
     );
+
+    // Filter items by isUsed if provided
+    if (isUsed !== undefined) {
+      console.log("isUsed:",isUsed);
+      filteredItems = filteredItems.filter(item => item.isUsed === isUsedBool);
+      console.log(filteredItems);
+    }
+
+    // Filter items by onSale if provided
+    
+    if (onSale !== undefined) {
+      console.log("onSale:",onSale);
+      filteredItems = filteredItems.filter(item => item.onSale === onSaleBool);
+    }
 
     const response = {
       message: `Search results for "${name}"`,
@@ -442,6 +467,36 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.post('/api/favorite-toggle', (req, res) => {
+  const { productId } = req.body;
+  console.log(productId);
+
+  // check if productId is in hardcodedData.items
+  const product = hardcodedData.items.find(item => item.productId === productId);
+  if (!product) {
+    return res.status(404).json({
+      error: 'Product not found',
+      message: 'The product with the given ID was not found'
+    });
+  }
+
+  // toggle isFavorite
+  product.isFavorite = !product.isFavorite;
+
+  // update hardcodedData.items
+  hardcodedData.items = hardcodedData.items.map(item => {
+    if (item.productId === productId) {
+      return product;
+    }
+    return item;
+  });
+
+  res.json({
+    message: true
+  });
+});
+
+
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
@@ -466,4 +521,5 @@ app.listen(PORT, () => {
   console.log(`🔍 Health check: http://localhost:${PORT}/health`);
   console.log(`🔎 Search by name: http://localhost:${PORT}/api/search?name=dress`);
   console.log(`📊 Fetch all data: http://localhost:${PORT}/api/fetchData`);
+  console.log(`💙 Toggle favorite: http://localhost:${PORT}/api/favorite-toggle`);
 });
