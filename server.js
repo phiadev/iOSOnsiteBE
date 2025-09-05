@@ -473,9 +473,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-app.post('/api/favorite-toggle', (req, res) => {
+app.post('/api/toggle-favorite', (req, res) => {
   const { productId } = req.body;
-  console.log(productId);
 
   // check if productId is in hardcodedData.items
   const product = hardcodedData.items.find(item => item.productId === productId);
