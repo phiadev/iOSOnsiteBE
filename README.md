@@ -46,50 +46,21 @@ curl "http://localhost:3000/api/search?name=dress"
 ```
 
 ### POST `/api/toggle-favorite`
-Allows for user to toggle if they want to favorite / unfavorite item
+Toggles the favorite status of a product item.
+
+**Request Body Parameters:**
+- `productId` (required): The unique product identifier
+
+**Example:**
+```bash
+curl -X POST http://localhost:3000/api/toggle-favorite \
+  -H "Content-Type: application/json" \
+  -d '{"productId": "ENTITY_TYPE_PRODUCT-ebcb9b193c91a075"}'
+``` 
 
 **Response:**
 ```json
-{
-  "message": "Search results for \"dress\"",
-  "timestamp": "2024-01-15T10:30:00.000Z",
-  "searchTerm": "dress",
-  "items": [
-    {
-			"itemName": "CAIA KNIT DRESS",
-			"brand": "Cult Gaia",
-			"price": "598",
-			"imageLink": "https://cultgaia.com/cdn/shop/files/250506_DR_CG_PF25_LOOK_137_0051.jpg?v=1751488747&width=2000",
-			"productId": "ENTITY_TYPE_PRODUCT-ebcb9b193c91a075",
-			"isUsed": false,
-			"onSale": false
-		},
-		{
-			"itemName": "Alyse V–Neck Midi Dress",
-			"brand": "Ulla Johnson",
-			"price": "1380",
-			"imageLink": "https://ullajohnson.com/cdn/shop/files/ULLA-JOHNSON_Alyse-V-Neck-Midi-Dress_PEARL_PF250181_01_MAIN_v4_887acdc4-bec0-457d-a4b0-84e963f13e44.jpg?v=1747329333&width=1920",
-			"productId": "ENTITY_TYPE_PRODUCT-afe997bb77baaf4b",
-			"isUsed": true,
-			"onSale": true
-		},
-		{
-			"itemName": "ALICI DRESS",
-			"brand": "Rat & Boa",
-			"price": "295",
-			"imageLink": "https://cdn.shopify.com/s/files/1/1191/9918/files/RatandBoa_SS25_D3_Alici_Dress_258_960x_crop_center@2x.jpg.webp?v=1750423015",
-			"productId": "ENTITY_TYPE_PRODUCT-d46e8c6674b55fc9",
-			"isUsed": false,
-			"onSale": true
-		}
-  ],
-  "metadata": {
-    "totalItems": 2,
-    "searchTerm": "dress",
-    "lastUpdated": "2024-01-15T10:30:00Z",
-    "version": "1.0.0"
-  }
-}
+{ "message": true }
 ```
 
 ### GET `/api/fetchData`

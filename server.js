@@ -377,7 +377,8 @@ app.get('/', (req, res) => {
     message: 'Welcome to Phia Onsite Backend API',
     endpoints: {
       search: 'GET /api/search?name=<search_term>',
-      fetchData: 'GET /api/fetchData'
+      fetchData: 'GET /api/fetchData',
+      toggleFavorite: 'POST /api/toggle-favorite'
     }
   });
 });
@@ -526,5 +527,5 @@ app.listen(PORT, () => {
   console.log(`🔍 Health check: http://localhost:${PORT}/health`);
   console.log(`🔎 Search by name: http://localhost:${PORT}/api/search?name=dress`);
   console.log(`📊 Fetch all data: http://localhost:${PORT}/api/fetchData`);
-  console.log(`💙 Toggle favorite: http://localhost:${PORT}/api/favorite-toggle`);
+  console.log(`💙 Toggle favorite: http://localhost:${PORT}/api/toggle-favorite`);
 });
